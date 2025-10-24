@@ -1,0 +1,88 @@
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer base {
+    html {
+        font-family: 'Inter', system-ui, sans-serif;
+    }
+    
+    body {
+        @apply antialiased;
+    }
+    }
+
+    @layer components {
+    .glass-effect {
+        @apply bg-white/10 backdrop-blur-md border border-white/20;
+    }
+    
+    .cyber-glow {
+        box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+    }
+    
+    .gradient-bg {
+        background: linear-gradient(-45deg, #0ea5e9, #6366f1, #8b5cf6, #06b6d4);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+    }
+
+    /* Tambahkan keyframes untuk gradient animation */
+    @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+    width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+    background: theme('colors.gray.100');
+    }
+
+    .dark ::-webkit-scrollbar-track {
+    background: theme('colors.gray.800');
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background: theme('colors.primary.500');
+    border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.primary.600');
+    }
+
+    /* Countdown animation */
+    .countdown-timer {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(45deg, #f59e0b, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulse 1s infinite;
+    }
+
+    @keyframes countdown-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+    }
+
+    .countdown-timer {
+    animation: countdown-pulse 1s ease-in-out infinite;
+    }
+
+    /* Progress bar animation */
+    .progress-bar {
+    transition: width 1s linear;
+    }
